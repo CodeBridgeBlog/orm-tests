@@ -9,4 +9,5 @@ public class OrmTestsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OrmTestsApplication.class, args);
 	}
+
 }

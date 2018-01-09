@@ -22,7 +22,7 @@ public class OrmTestsApplicationTests {
 
 	@Test
 	public void context_loads() {
-        // Should fail due to error creating bean with name 'dummyService'
+
 	}
 
 }

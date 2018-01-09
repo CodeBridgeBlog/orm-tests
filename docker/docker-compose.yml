@@ -1,0 +1,9 @@
+postgres:
+    container_name: postgres
+    image: postgres:9.6.3
+    ports:
+        - "5432:5432"
+    environment:
+        PGUSER: "postgres"
+        POSTGRES_PASSWORD: "secret"
+        POSTGRES_DB: "test"

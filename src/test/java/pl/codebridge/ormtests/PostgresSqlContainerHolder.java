@@ -10,7 +10,7 @@ public enum PostgresSqlContainerHolder {
         return INSTANCE;
     }
 
-    private final PostgreSQLContainer container = new PostgreSQLContainer();
+    private final PostgreSQLContainer container = new PostgreSQLContainer("postgres:9.6.3");
 
     public PostgreSQLContainer get() {
         return container;

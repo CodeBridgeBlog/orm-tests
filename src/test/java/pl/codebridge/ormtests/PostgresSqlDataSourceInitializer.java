@@ -10,7 +10,7 @@ public abstract class PostgresSqlDataSourceInitializer implements
 
     @Override
     public void initialize(ConfigurableApplicationContext context) {
-        final PostgreSQLContainer postgres = PostgresSqlContainerHolder.getInstance().get();
+        final PostgreSQLContainer postgres = TestContext.postgreSqlContainer();
         EnvironmentTestUtils.addEnvironment("testcontainers", context.getEnvironment(),
                 "spring.datasource.url=" + postgres.getJdbcUrl(),
                 "spring.datasource.username=" + postgres.getUsername(),

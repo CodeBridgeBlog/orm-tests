@@ -1,27 +1,20 @@
 package pl.codebridge.ormtests.repository;
 
-import static java.util.stream.Collectors.toList;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsCollectionContaining.hasItem;
-import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.core.IsNull.notNullValue;
-
-import java.util.List;
-import java.util.stream.Stream;
 import org.hibernate.Hibernate;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import pl.codebridge.ormtests.PostgresSqlDataSourceInitializer;
 import pl.codebridge.ormtests.model.Customer;
 import pl.codebridge.ormtests.model.CustomerDetails;
+import java.util.List;
+import java.util.stream.Stream;
 
-@ContextConfiguration(initializers = CustomerRepositoryTest.Initializer.class)
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
+@ContextConfiguration(initializers = CustomerRepositoryTest.class)
 public class CustomerRepositoryTest extends BaseRepositoryTest {
-
-    public static class Initializer extends PostgresSqlDataSourceInitializer {}
 
     @Autowired
     private CustomerRepository repository;

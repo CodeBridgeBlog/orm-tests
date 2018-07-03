@@ -13,17 +13,18 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.testcontainers.containers.PostgreSQLContainer;
-import pl.codebridge.ormtests.PostgresSqlContainerHolder;
+import pl.codebridge.ormtests.PostgresSqlDataSourceInitializer;
+import pl.codebridge.ormtests.TestContext;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
 @ImportAutoConfiguration(FlywayAutoConfiguration.class)
 @ActiveProfiles("test")
-public abstract class BaseRepositoryTest {
+public abstract class BaseRepositoryTest extends PostgresSqlDataSourceInitializer {
 
     @ClassRule
-    public static PostgreSQLContainer postgres = PostgresSqlContainerHolder.getInstance().get();
+    public static PostgreSQLContainer postgres = TestContext.postgreSqlContainer();
 
     @Autowired
     protected TestEntityManager entityManager;

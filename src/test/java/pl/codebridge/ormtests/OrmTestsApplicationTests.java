@@ -18,7 +18,7 @@ public class OrmTestsApplicationTests {
 	public static class Initializer extends PostgresSqlDataSourceInitializer {}
 
 	@ClassRule
-	public static PostgreSQLContainer postgres = PostgresSqlContainerHolder.getInstance().get();
+	public static PostgreSQLContainer postgres = TestContext.postgreSqlContainer();
 
 	@Test
 	public void context_loads() {
